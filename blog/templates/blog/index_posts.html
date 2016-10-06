@@ -2,21 +2,51 @@
 
 {% block content %}
 
-	<h1>Hola AL</h1>
+	<div class="row">
+  	<div class="col-xs-6 col-md-4">
+  	</div>
+  	<div class="col-xs-6 col-md-4">
+  		<h4 align="center">Posts</h4>
+  	</div>
+  	<div class="col-xs-6 col-md-4">
+  	</div>
+	</div>
 
 	{% if post_list %}
-	    <ul>
+	   <table class="table">
+	   	<tr>
+	   		<th>Title</th>
+	   		<th></th>
+	   	</tr>
 	    {% for post in post_list %}
-	        <li>
-	        	<a href="{% url 'blog:read_post' post.id %}">{{ post.title }}</a>
-	        	<a href="{% url 'blog:delete_post' post.id %}">Delete</a>
-	        </li>
+	        <tr>
+	        	<td>
+	        		<a href="{% url 'blog:read_post' post.id %}">{{ post.title }}</a>
+	        	</td>
+	        	<td>
+	        		<a href="{% url 'blog:delete_post' post.id %}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+	        		<a href="{% url 'blog:update_post' post.id %}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+	        	</td>
+	        </tr>
 	    {% endfor %}
-	    </ul>
+	    </table>
 	{% else %}
 	    <p>No polls are available.</p>
 	{% endif %}
 
-	<a href="{% url 'blog:create_post' %}">Create</a>
+	<div class="row">
+  	<div class="col-xs-6 col-md-4">
+  	</div>
+  	<div class="col-xs-6 col-md-4">
+  		<div align = "center">
+  			<a class="btn btn-default" href="{% url 'blog:create_post' %}" role="button">New Post</a>
+  		</div>
+  		
+  	</div>
+  	<div class="col-xs-6 col-md-4">
+  	</div>
+	</div>
+	
 
 {% endblock %}
+

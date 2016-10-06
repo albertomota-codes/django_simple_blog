@@ -1,6 +1,12 @@
-<h1>Leats Read</h1>
+{% extends 'blog/base.html' %}
 
-<h2>{{ post.title }}</h2>
-<h3>{{ post.text }}</h3>
-
-<a href="{% url 'blog:update_post' post.id %}">Edit</a>
+{% block content %}
+	
+	<div class="jumbotron">
+		<h2>{{ post.title }}</h2>
+		<h4> Author Name</h4>
+		<h6>{{ post.publication_date }}</h6>
+		<p>{{ post.text }}</p>
+	</div>	
+	
+{% endblock %}

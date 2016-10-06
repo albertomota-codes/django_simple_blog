@@ -29,7 +29,7 @@ class UpdatePostView(generic.edit.UpdateView):
 
 class PostCreateView(generic.edit.CreateView):
     model = Post
-    fields = ['title','text']
+    fields = ['title','text','publication_date']
     def get_success_url(self):
         return reverse('blog:index_posts')
 

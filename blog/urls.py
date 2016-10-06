@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/update_post/$', views.UpdatePostView.as_view(), name='update_post'),
     url(r'^createPost/$', views.PostCreateView.as_view(), name='create_post'),
     url(r'^(?P<pk>[0-9]+)/delete_post/$', views.PostDeleteView.as_view(), name='delete_post'),
-
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
