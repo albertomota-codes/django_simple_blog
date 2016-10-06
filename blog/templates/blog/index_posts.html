@@ -12,6 +12,19 @@
   	</div>
 	</div>
 
+	<form action="/blog/" method="GET">
+		<div class="form-group row">
+			<label for="example-text-input" class="col-xs-1 col-form-label">Filter</label>
+			<div class="col-xs-6">
+				<input class="form-control" type="text" value="" name="q"> 
+			</div>
+			<div class="col-xs-3">
+				<button type="submit" class="btn btn-primary">Filter</button>
+			</div>
+			
+		</div>
+	</form>
+
 	{% if post_list %}
 	   <table class="table">
 	   	<tr>
