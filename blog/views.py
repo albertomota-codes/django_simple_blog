@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
 import forms
 import logging
 
@@ -28,6 +29,7 @@ class UserFormView(View):
 
         if form.is_valid():
             user = form.save(commit = False)
+
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
@@ -78,7 +80,7 @@ class PostCreateView(generic.edit.CreateView):
 
     def form_valid(self, form):
         obj = form.save(commit=False)
-        if self.request.user is not None:
+        if isinstance(self.request.user,User):
             obj.user = self.request.user
             obj.save()        
         return super(PostCreateView, self).form_valid(form)
