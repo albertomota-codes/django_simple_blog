@@ -96,8 +96,8 @@ DATABASES = {
         'PORT': '',
     }
 
-
 }
+
 
 
 # Password validation
