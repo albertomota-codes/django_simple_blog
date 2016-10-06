@@ -4,7 +4,12 @@
 	
 	<div class="jumbotron">
 		<h2>{{ post.title }}</h2>
-		<h4> Author Name</h4>
+		
+		{% if post.user is not None %}
+			<h4> {{ post.user.username }}</h4>
+		{% else %}
+			<h4> Anonymous</h4>
+		{% endif %}
 		<h6>{{ post.publication_date }}</h6>
 		<p>{{ post.text }}</p>
 	</div>	

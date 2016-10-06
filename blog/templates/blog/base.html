@@ -17,10 +17,28 @@
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <a class="navbar-brand" href="/blog/"> AMR Blog</a>
+              <ul class="nav navbar-nav">
+                
+                    {% if user.is_authenticated %}
+                        <li class="nav-item ">
+                            <p>Hola {{ user.username }} !!!</p> 
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/blog/logout">logout</a>      
+                        </li>
+                    {% else %}
+                        <li class="nav-item ">
+                            <a href="register">Register</a>     
+                        </li>
+                    {% endif %} 
+                </li>
+              </ul>
 		    </div>
+            
 		  </div><!-- /.container-fluid -->
 		</nav>
 
+        
         
         <div class="container">
         	{% block content %}
